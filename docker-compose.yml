@@ -1,0 +1,31 @@
+services:
+  install:
+      image: starter/web-app
+      volumes:
+        - .:/app
+      env_file:
+        - .env
+      command: ["npm", "install"]
+
+  ui:
+    image: starter/web-app
+    command: ["npm", "run", "dev", "--", "--host", "0.0.0.0"]
+    volumes:
+      - .:/app
+    env_file:
+      - .env
+    ports:
+      - 80:80
+      - 3001:3001
+    depends_on:
+      install:
+        condition: service_completed_successfully
+
+  watch-eslint:
+    image: starter/web-app
+    command: ["npx", "nodemon", "--config", "nodemon-lint.json"]
+    volumes:
+      - .:/app
+    depends_on:
+      install:
+        condition: service_completed_successfully

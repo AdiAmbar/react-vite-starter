@@ -1,0 +1,6 @@
+{
+  "watch": ["src"],
+  "ext": "ts,tsx",
+  "delay": 4,
+  "exec": "npm run eslint && npm run tsc"
+}

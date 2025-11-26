@@ -1,0 +1,20 @@
+{
+  "api": {
+    "origin": ""
+  },
+  "sentry": {
+    "dsn": "",
+    "environment": "production"
+  },
+  "aws": {
+    "assetBucket": {
+      "origin": ""
+    }
+  },
+  "redux": {
+    "devTools": false
+  },
+  "marketing": {
+    "origin": ""
+  }
+}
